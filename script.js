@@ -17,6 +17,39 @@ var Counter = React.createClass({
             counter: this.state.counter - 1
         });
     },
+   
+getDefaultProps: function() {
+    console.log('getDefaultProps - ustawiam domyślne wartości propsów');
+}, 
+    
+componentWillMount: function() {
+    console.log('componentWillMount - jestem wykonywana przed renderem');
+},
+    
+componentDidMount: function() {
+    console.log('componentDidMount - jestem wykonywana po renderze');
+},
+    
+componentWillReceiveProps: function() {
+    console.log('componentWillReceiveProps - jestem wywoływana, gdy zmieniają się propsy');
+},
+    
+shouldComponentUpdate: function() {
+    console.log('shouldComponentUpdate - mogę być wykorzystana do optymalizacji aplikacji');
+    return true;
+},
+    
+componentWillUpdate: function() {
+    console.log('componentWillUpdate - jestem wywoływana przed metodą render');
+},
+    
+componentDidUpdate: function() {
+    console.log('componentDidUpdate jestem wywoływana po renderze');
+},
+    
+componentWillUnmount: function() {
+    console.log('componentWillUnmount - jestem wywoływana przed usunięciem komponentu z drzewa DOM');
+}, 
     
     render: function() {
         return React.createElement('div', {className: 'counter'},
@@ -50,32 +83,5 @@ var element = React.createElement('div', {},
     )
 
 );
-
-/*
-getDefaultProps: function() {
-    console.log('Metoda ustawia domyślne wartości propsów');
-},
-componentWillMount: function() {
-    console.log('Metoda wykonywana przed wykonaniem metody render, przed zamontowaniem komponentu');
-},
-componentDidMount: function() {
-    console.log('Metoda wywoływana po wykonaniu render, nadaje się do wczytania danych z serwera');
-},
-componentWillReceiveProps: function() {
-    console.log('Metoda wywoływana, gdy zmieniają się propsy');
-},
-shouldComponentUpdate: function() {
-    console.log('Metoda może być wykorzystana do optymalizacji aplikacji');
-},
-componentWillUpdate: function() {
-    console.log('Metoda wywoływana po metodzie render, można robić zmiany w DOM');
-},
-componentDidUpdate: function() {
-    console.log('Metoda wywoływana po render(), gdy komponent został zaktualizowany, możemy wykonać manipulacje w DOM');
-},
-componentWillUnmount: function() {
-    console.log('Metoda wywoływana przed usunięciem komponentu z drzewa DOM');
-},
- */ 
 
 ReactDOM.render(element, document.getElementById('app'));
